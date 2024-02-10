@@ -1,4 +1,4 @@
-local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/main.lua"))()
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
@@ -14,15 +14,17 @@ local Window = Fluent:CreateWindow({
 
 -- Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "home" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }),
+    Home = Window:AddTab({ Title = "Home", Icon = "home" }),
     Combat = Window:AddTab({ Title = "Combat", Icon = "swords" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "bar-chart" }),
     Teleport = Window:AddTab({ Title = "Teleport", Icon = "map-pin" }),
     Dungeon = Window:AddTab({ Title = "Dungeon", Icon = "skull" }),
     DevilFruit = Window:AddTab({ Title = "Devil Fruit", Icon = "apple" }),
     Shop = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-    SettingsUi = Window:AddTab({ Title = "Settings UI", Icon = "settings" })
+    SettingsUi = Window:AddTab({ Title = "Settings UI", Icon = "settings" }),
+    NewTab = Window:AddTab({ Title = "New Tab", Icon = "custom-icon" }) -- Add a new tab named "New Tab"
 }
 
 local Options = Fluent.Options
