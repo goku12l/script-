@@ -1,10 +1,10 @@
-local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/Home.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Avalon Hub [Blox Fruits] " .. Fluent.Version,
-    SubTitle = "by Peerlessgof",
+    Title = "Fluent " .. Fluent.Version,
+    SubTitle = "by dawid",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
     Acrylic = true,
@@ -14,7 +14,7 @@ local Window = Fluent:CreateWindow({
 
 -- Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "" }),
+    
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }),
     Home = Window:AddTab({ Title = "Home", Icon = "home" }),
     Combat = Window:AddTab({ Title = "Combat", Icon = "swords" }),
@@ -23,15 +23,15 @@ local Tabs = {
     Dungeon = Window:AddTab({ Title = "Dungeon", Icon = "skull" }),
     DevilFruit = Window:AddTab({ Title = "Devil Fruit", Icon = "apple" }),
     Shop = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-    SettingsUi = Window:AddTab({ Title = "Settings UI", Icon = "settings" }),
-    NewTab = Window:AddTab({ Title = "New Tab", Icon = "custom-icon" }) -- Add a new tab named "New Tab"
+    SettingsUi = Window:AddTab({ Title = "Settings UI", Icon = "settings" })
+     
 }
 
 local Options = Fluent.Options
 
 -- Add UI elements to each tab...
 
--- Add UI elements to the "Main" tab
+-- Add UI elements to the "Home" tab
 do
     Fluent:Notify({
         Title = "Notification",
@@ -40,12 +40,12 @@ do
         Duration = 5 -- Set to nil to make the notification not disappear
     })
 
-    Tabs.Main:AddParagraph({
+    Tabs.Home:AddParagraph({
         Title = "Paragraph",
         Content = "This is a paragraph.\nSecond line!"
     })
 
-    Tabs.Main:AddButton({
+    Tabs.Home:AddButton({
         Title = "Button",
         Description = "Very important button",
         Callback = function()
@@ -70,7 +70,7 @@ do
         end
     })
 
-    local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Toggle", Default = false })
+    local Toggle = Tabs.Home:AddToggle("MyToggle", {Title = "Toggle", Default = false })
 
     Toggle:OnChanged(function()
         print("Toggle changed:", Options.MyToggle.Value)
