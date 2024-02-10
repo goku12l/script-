@@ -3,18 +3,19 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Avalon Hub beta 1.0  " .. Fluent.Version,
-    SubTitle = "by peerlessgod ",
+    Title = "Avalon Hub [Blox Fruits] " .. Fluent.Version,
+    SubTitle = "by Peerlessgof",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
-    Acrylic = false, -- The blur may be detectable, setting this to false disables blur entirely
+    Acrylic = true,
     Theme = "Dark",
-    MinimizeKey = Enum.KeyCode.LeftControl -- Used when there's no MinimizeKeybind
+    MinimizeKey = Enum.KeyCode.LeftControl
 })
 
--- Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs; icons are optional
+-- Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
 local Tabs = {
-    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }), -- Note the comma after each element
+    Main = Window:AddTab({ Title = "Main", Icon = "" }),
+    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }),
     Home = Window:AddTab({ Title = "Home", Icon = "home" }),
     Combat = Window:AddTab({ Title = "Combat", Icon = "swords" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "bar-chart" }),
@@ -22,12 +23,15 @@ local Tabs = {
     Dungeon = Window:AddTab({ Title = "Dungeon", Icon = "skull" }),
     DevilFruit = Window:AddTab({ Title = "Devil Fruit", Icon = "apple" }),
     Shop = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-    SettingsUi = Window:AddTab({ Title = "Settings UI", Icon = "settings" })
+    SettingsUi = Window:AddTab({ Title = "Settings UI", Icon = "settings" }),
+    NewTab = Window:AddTab({ Title = "New Tab", Icon = "custom-icon" }) -- Add a new tab named "New Tab"
 }
-
 
 local Options = Fluent.Options
 
+-- Add UI elements to each tab...
+
+-- Add UI elements to the "Main" tab
 do
     Fluent:Notify({
         Title = "Notification",
@@ -36,12 +40,12 @@ do
         Duration = 5 -- Set to nil to make the notification not disappear
     })
 
-    Tabs.Home:AddParagraph({
+    Tabs.Main:AddParagraph({
         Title = "Paragraph",
         Content = "This is a paragraph.\nSecond line!"
     })
 
-    Tabs.Home:AddButton({
+    Tabs.Main:AddButton({
         Title = "Button",
         Description = "Very important button",
         Callback = function()
@@ -66,7 +70,7 @@ do
         end
     })
 
-    local Toggle = Tabs.Home:AddToggle("MyToggle", { Title = "Toggle", Default = false })
+    local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Toggle", Default = false })
 
     Toggle:OnChanged(function()
         print("Toggle changed:", Options.MyToggle.Value)
@@ -74,15 +78,35 @@ do
 
     Options.MyToggle:SetValue(false)
 
-    -- The rest of your script remains unchanged...
+    -- Add more UI elements as needed...
 end
 
--- Addons:
--- SaveManager (Allows you to have a configuration system)
--- InterfaceManager (Allows you to have an interface management system)
+-- Add UI elements to other tabs as needed...
 
--- Hand the library over to our managers
+-- Hand the library over to managers
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
 
--- Ignore keys that are used by ThemeManager
+-- Ignore keys used by ThemeManager
+SaveManager:IgnoreThemeSettings()
+
+-- Set folders for managers
+InterfaceManager:SetFolder("FluentScriptHub")
+SaveManager:SetFolder("FluentScriptHub/specific-game")
+
+-- Build interface and configuration sections
+InterfaceManager:BuildInterfaceSection(Tabs.Settings)
+SaveManager:BuildConfigSection(Tabs.Settings)
+
+-- Select the first tab
+Window:SelectTab(1)
+
+-- Show a notification
+Fluent:Notify({
+    Title = "Fluent",
+    Content = "The script has been loaded.",
+    Duration = 8
+})
+
+-- Load autoload config if available
+SaveManager:LoadAutoloadConfig()
