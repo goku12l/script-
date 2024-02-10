@@ -14,16 +14,17 @@ local Window = Fluent:CreateWindow({
 
 -- Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs; icons are optional
 local Tabs = {
-	 Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
+    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }), -- Note the comma after each element
     Home = Window:AddTab({ Title = "Home", Icon = "home" }),
     Combat = Window:AddTab({ Title = "Combat", Icon = "swords" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "bar-chart" }),
-	 Teleport = Window:AddTab({ Title = "Teleport", Icon = "map-pin" }),
-	 Dungeon = Window:AddTab({ Title = "Dungeon", Icon = "skull" }),
-	 DevilFruit = Window:AddTab({ Title = "Devil Fruit", Icon = "apple" }),
-	 Shop = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
+    Teleport = Window:AddTab({ Title = "Teleport", Icon = "map-pin" }),
+    Dungeon = Window:AddTab({ Title = "Dungeon", Icon = "skull" }),
+    DevilFruit = Window:AddTab({ Title = "Devil Fruit", Icon = "apple" }),
+    Shop = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
     SettingsUi = Window:AddTab({ Title = "Settings UI", Icon = "settings" })
 }
+
 
 local Options = Fluent.Options
 
