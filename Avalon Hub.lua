@@ -1,4 +1,4 @@
-local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/Home.lua"))()
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
@@ -14,9 +14,8 @@ local Window = Fluent:CreateWindow({
 
 -- Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
 local Tabs = {
-    
+    Main = Window:AddTab({ Title = "Main", Icon = "home" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }),
-    Home = Window:AddTab({ Title = "Home", Icon = "home" }),
     Combat = Window:AddTab({ Title = "Combat", Icon = "swords" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "bar-chart" }),
     Teleport = Window:AddTab({ Title = "Teleport", Icon = "map-pin" }),
@@ -31,7 +30,7 @@ local Options = Fluent.Options
 
 -- Add UI elements to each tab...
 
--- Add UI elements to the "Home" tab
+-- Add UI elements to the "Main" tab
 do
     Fluent:Notify({
         Title = "Notification",
@@ -40,12 +39,12 @@ do
         Duration = 5 -- Set to nil to make the notification not disappear
     })
 
-    Tabs.Home:AddParagraph({
+    Tabs.Main:AddParagraph({
         Title = "Paragraph",
         Content = "This is a paragraph.\nSecond line!"
     })
 
-    Tabs.Home:AddButton({
+    Tabs.Main:AddButton({
         Title = "Button",
         Description = "Very important button",
         Callback = function()
@@ -70,7 +69,7 @@ do
         end
     })
 
-    local Toggle = Tabs.Home:AddToggle("MyToggle", {Title = "Toggle", Default = false })
+    local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Toggle", Default = false })
 
     Toggle:OnChanged(function()
         print("Toggle changed:", Options.MyToggle.Value)
