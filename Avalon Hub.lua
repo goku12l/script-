@@ -3,8 +3,8 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Fluent " .. Fluent.Version,
-    SubTitle = "by dawid",
+    Title = "Avalon Hub [Blox Fruit] " .. Fluent.Version,
+    SubTitle = "by peerlessgod",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
     Acrylic = true,
@@ -14,17 +14,15 @@ local Window = Fluent:CreateWindow({
 
 -- Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "home" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }),
-    Home = Window:AddTab({ Title = "Home", Icon = "home" }),
     Combat = Window:AddTab({ Title = "Combat", Icon = "swords" }),
     Stats = Window:AddTab({ Title = "Stats", Icon = "bar-chart" }),
     Teleport = Window:AddTab({ Title = "Teleport", Icon = "map-pin" }),
     Dungeon = Window:AddTab({ Title = "Dungeon", Icon = "skull" }),
     DevilFruit = Window:AddTab({ Title = "Devil Fruit", Icon = "apple" }),
     Shop = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-    SettingsUi = Window:AddTab({ Title = "Settings UI", Icon = "settings" }),
-    NewTab = Window:AddTab({ Title = "New Tab", Icon = "custom-icon" }) -- Add a new tab named "New Tab"
+    SettingsUi = Window:AddTab({ Title = "Settings UI", Icon = "settings" })
 }
 
 local Options = Fluent.Options
