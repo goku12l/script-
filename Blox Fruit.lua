@@ -14,3 +14,11 @@ Discord:AddDiscordInvite({
   Logo = "rbxassetid://15799458477",
   Invite = "https://discord.gg/2apFTuuzGS"
 })
+local MainFarm = Window:MakeTab({"Farm", "Home"})
+if Sea3 then
+  local AutoSea = Window:MakeTab({"Sea", "Waves"})
+  AutoSea:AddSection({"Kitsune"})
+  local KILabel = AutoSea:AddParagraph({"Kitsune Island : not spawn"})
+  AutoSea:AddToggle({Name = "Auto Kitsune Island",Callback = function(Value)
+    getgenv().AutoKitsuneIsland = Value;AutoKitsuneIsland()
+  end})
