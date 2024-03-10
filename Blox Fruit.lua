@@ -16,15 +16,13 @@ Discord:AddDiscordInvite({
 })
 
 local FarmTab = Window:MakeTab("Farm", "Home") -- Changed tab variable name to FarmTab
-if Sea3 then
-    local AutoSea = Window:MakeTab("Sea", "Waves")
-    AutoSea:AddSection("Kitsune")
-    local KILabel = AutoSea:AddParagraph("Kitsune Island : not spawn")
-    AutoSea:AddToggle({
-        Name = "Auto Kitsune Island",
-        Callback = function(Value)
-            getgenv().AutoKitsuneIsland = Value
-            AutoKitsuneIsland()
-        end
-    })
-end
+local AutoSea = Window:MakeTab("Sea", "Waves")
+AutoSea:AddSection("Kitsune")
+local KILabel = AutoSea:AddParagraph("Kitsune Island : not spawn")
+AutoSea:AddToggle({
+    Name = "Auto Kitsune Island",
+    Callback = function(Value)
+        getgenv().AutoKitsuneIsland = Value
+        AutoKitsuneIsland()
+    end
+})
