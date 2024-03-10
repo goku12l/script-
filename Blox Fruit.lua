@@ -7,7 +7,7 @@ local Window = redzlib:MakeWindow({
 
 local AFKOptions = {}
 
-local Discord = Window:MakeTab("Discord", "Info") -- Changed MakeTab parameter
+local Discord = Window:MakeTab("Discord", "Info")
 Discord:AddDiscordInvite({
     Name = "Avalon Hub | Community",
     Description = "Join our discord community to receive information about the next update",
@@ -15,11 +15,11 @@ Discord:AddDiscordInvite({
     Invite = "https://discord.gg/2apFTuuzGS"
 })
 
-local MainFarm = Window:MakeTab("Farm", "Home") -- Changed MakeTab parameter
+local FarmTab = Window:MakeTab("Farm", "Home") -- Changed tab variable name to FarmTab
 if Sea3 then
-    local AutoSea = Window:MakeTab("Sea", "Waves") -- Changed MakeTab parameter
-    AutoSea:AddSection("Kitsune") -- Removed unnecessary array brackets
-    local KILabel = AutoSea:AddParagraph("Kitsune Island : not spawn") -- Removed unnecessary array brackets
+    local AutoSea = Window:MakeTab("Sea", "Waves")
+    AutoSea:AddSection("Kitsune")
+    local KILabel = AutoSea:AddParagraph("Kitsune Island : not spawn")
     AutoSea:AddToggle({
         Name = "Auto Kitsune Island",
         Callback = function(Value)
