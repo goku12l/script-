@@ -4,3 +4,13 @@ local Window = redzlib:MakeWindow({
   SubTitle = "by Peerlessgod",
   SaveFolder = "Avalon Hub | Blox Fruits.lua"
 })
+
+local AFKOptions = {}
+
+local Discord = Window:MakeTab({"Discord", "Info"})
+Discord:AddDiscordInvite({
+  Name = "Avalon Hub | Community",
+  Description = "Join our discord community to receive information about the next update",
+  Logo = "rbxassetid://15799458477",
+  Invite = "https://discord.gg/2apFTuuzGS"
+})
