@@ -16,3 +16,12 @@ Discord:AddDiscordInvite({
 })
 
 local MainFarm = Window:MakeTab({"Farm", "Home"})
+
+local Informacoes = Window:MakeTab({"Info", "Search"})
+Informacoes:AddSection({"Player"})
+local Nerd = Informacoes:AddParagraph({"Nerd < Accessories Info >"})
+task.spawn(function()
+    while task.wait() do
+        Nerd:SetDesc(FireRemote("Nerd"))
+    end
+end)
