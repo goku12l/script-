@@ -15,7 +15,7 @@ Discord:AddDiscordInvite({
     Invite = "https://discord.gg/2apFTuuzGS"
 })
 
-local FarmTab = Window:AddTab("Farm", "Home") -- Changed to AddTab
+local FarmTab = Window:MakeTab("Farm", "Home") -- Changed to AddTab
 if Sea3 then
     local AutoSea = Window:MakeTab("Sea", "Waves")
     AutoSea:AddSection("Kitsune")
