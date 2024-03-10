@@ -14,7 +14,7 @@ Discord:AddDiscordInvite({
   Logo = "rbxassetid://15799458477",
   Invite = "https://discord.gg/2apFTuuzGS"
 })
-local MainFarm = Window:MakeTab({"Farm", "Home"})
+local Farm = Window:MakeTab({"Farm", "Home"})
 if Sea3 then
   local AutoSea = Window:MakeTab({"Sea", "Waves"})
   AutoSea:AddSection({"Kitsune"})
