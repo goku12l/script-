@@ -16,19 +16,26 @@ Discord:AddDiscordInvite({
 })
 
 local MainFarm = Window:MakeTab({"Farm", "Home"})
-
 if Sea3 then
-    local AutoSea = Window:MakeTab({"Sea", "Waves"})
-    AutoSea:AddSection({"Kitsune"})
-    local KILabel = AutoSea:AddParagraph({"Kitsune Island : not spawn"})
-    AutoSea:AddToggle({
-        Name = "Auto Kitsune Island",
-        Callback = function(Value)
-            getgenv().AutoKitsuneIsland = Value
-            AutoKitsuneIsland()
-        end
-    })
-end
+  local AutoSea = Window:MakeTab({"Sea", "Waves"})
+  AutoSea:AddSection({"Kitsune"})
+  local KILabel = AutoSea:AddParagraph({"Kitsune Island : not spawn"})
+  AutoSea:AddToggle({Name = "Auto Kitsune Island",Callback = function(Value)
+    getgenv().AutoKitsuneIsland = Value;AutoKitsuneIsland()
+  end})
+  AutoSea:AddToggle({Name = "Auto Trade Azure Ember",Callback = function(Value)
+    getgenv().TradeAzureEmber = Value
+    task.spawn(function()
+      local Modules = ReplicatedStorage:WaitForChild("Modules", 9e9)
+      local Net = Modules:WaitForChild("Net", 9e9)
+      local KitsuneRemote = Net:WaitForChild("RF/KitsuneStatuePray", 9e9)
+      
+      while getgenv().TradeAzureEmber do task.wait(1)
+        KitsuneRemote:InvokeServer()
+      end
+    end)
+  end})
+
 
 local Informacoes = Window:MakeTab({"Info", "Search"})
 Informacoes:AddSection({"Player"})
