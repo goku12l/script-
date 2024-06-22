@@ -17,5 +17,5 @@ local Window = redzlib:MakeWindow({
 
     -- Assuming the FireServer part needs to be wrapped in a function or a conditional
     if Toggle1.Value then
-        game:GetService("ReplicatedStorage").Remotes.Clicker:FireServer()
+       print("works")
     end
