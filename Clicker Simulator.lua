@@ -3,19 +3,32 @@ local Window = redzlib:MakeWindow({
     Title = "AvalonHub [Clicker Simulator]", 
     SubTitle = "", 
     SaveFolder = "RedzConfig"
-  })
-  
-  local Tab1 = Window:MakeTab({"Auto Farm", " you will be able to auto Farm"})
+})
 
-  local Toggle1 = Tab1:AddToggle({
+local Tab1 = Window:MakeTab({"Auto Farm", " you will be able to auto Farm"})
+
+local AutoFarmToggle = Tab1:AddToggle({
     Name = "Auto Farm",
     Description = "Start Clicking for money",
     Default = false
-  })
-  
-  Toggle1:SetValue(true) -- Assuming this function sets the toggle to true or false
+})
 
-    -- Assuming the FireServer part needs to be wrapped in a function or a conditional
-    if Toggle1.Value then
-       print("works")
+-- Function to start auto-farming
+local function StartAutoFarm()
+    while AutoFarmToggle.Value do
+        game:GetService("ReplicatedStorage").Remotes.Clicker:FireServer()
+        wait(0.1) -- Adjust the wait time as needed
     end
+end
+
+-- Listen for changes in the toggle value
+AutoFarmToggle.OnChanged = function(value)
+    if value then
+        StartAutoFarm()
+    end
+end
+
+-- Initial check if the toggle is on by default
+if AutoFarmToggle.Value then
+    StartAutoFarm()
+end
