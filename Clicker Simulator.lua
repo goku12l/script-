@@ -10,7 +10,7 @@ Discord:AddDiscordInvite({
   Name = "redz Hub | Community",
   Description = "Join our discord community to receive information about the next update",
   Logo = "rbxassetid://15298567397",
-  Invite = "https://discord.gg/7aR7kNVt4g"
+  Invite = "https://discord.gg/2apFTuuzGS"
 })
 
 local MainFarm = Window:MakeTab({"Farm", "Home"})
